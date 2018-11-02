@@ -50,11 +50,11 @@ var params = {
 function computerChoiceNumber() {
   var computerChoiceNumber = Math.floor(Math.random() * 3 + 1);
   if (computerChoiceNumber == 1) {
-    computerChoice = "papier";
+    params.computerChoice = "papier";
   } else if (computerChoiceNumber == 2) {
     params.computerChoice = "kamień";
   } else {
-    computerChoice = "nożyce";
+    params.computerChoice = "nożyce";
   }
 };
 
