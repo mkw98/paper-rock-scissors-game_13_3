@@ -86,15 +86,15 @@ function playerMove(playerChoice) {
   }
 
   if (roundsNumber == 0) 
-    {if (computerScore > playerScore) {
+    {if (params.computerScore > params.playerScore) {
         params.rounds.innerHTML = 'GAME OVER' +'<br>' + 'KOMPUTER WYGRAŁ';
         buttons.classList.add("hide");
         rounds.classList.add("important");
-    } else if (playerScore > computerScore) {
+    } else if (params.playerScore > params.computerScore) {
        params.rounds.innerHTML = 'GAME OVER' + '<br>' + 'KOMPUTER PRZEGRAŁ';
        buttons.classList.add("hide");
        rounds.classList.add("important");
-    } else if (playerScore === computerScore) {
+    } else if (params.playerScore === params.computerScore) {
       params.rounds.innerHTML = 'GAME OVER' + '<br>' + 'REMIS';
       buttons.classList.add("hide");
       rounds.classList.add("important");
