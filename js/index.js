@@ -12,7 +12,8 @@
 var params = {
   paper: document.getElementById('paper'),
   scissors: document.getElementById('scissors'),
-  rock: document.getElementById('rock');    output: document.getElementById('output'),
+  rock: document.getElementById('rock'),
+  output: document.getElementById('output'),
   result: document.getElementById('result'),
   rounds: document.getElementById('rounds'),
   yourScore: ocument.getElementById('yourScore'),
