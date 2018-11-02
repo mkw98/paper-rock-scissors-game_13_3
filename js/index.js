@@ -133,7 +133,7 @@ newGame.addEventListener("click", function() {
   params.computerScore = 0;
   params.roundsNumber = window.prompt(
     "Ile rund chcesz rozegrać?");
-  if (roundsNumber === null) {
+  if (params.roundsNumber === null) {
     params.rounds.innerHTML = 'Kliknięto "anuluj". Rezygnujesz? Jeśli nie, kliknij "Nowa gra", aby ustalić, ile razy chcesz zagrać';
   } else if (isNaN(roundsNumber)) {
     params.rounds.innerHTML = 'Ile rund chcesz rozegrać? Wpisz tylko cyfry' + '<br><br>';
