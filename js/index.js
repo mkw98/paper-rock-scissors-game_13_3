@@ -19,10 +19,10 @@ var params = {
   yourScore: document.getElementById('yourScore'),
   hisScore: document.getElementById('hisScore'),
   newGame: document.getElementById('newGame'),
-  playerScore,
-  computerScore,
-  computerChoice,
-  roundsNumber,
+  playerScore: 0,
+  computerScore: 0,
+  computerChoice: 0,
+  roundsNumber: 0,
   
   
   //playerWins: 0,
