@@ -30,7 +30,21 @@ var params = {
   //completeRounds: 0,
   //progress: [],
 };
-                   
+
+//modal
+//var showModal = function(score){
+//	document.querySelector('.overlay').classList.add('show');
+//	document.querySelector(score).classList.add('show');
+// };
+
+//var hideModal = function(event){
+//	event.preventDefault();
+//	document.querySelector('#modal-overlay').classList.remove('show');
+//	var modalsToClose = document.querySelectorAll('.modal');
+//	for(var i = 0; i < modalsToClose.length; i++){
+//		modalsToClose[i].classList.remove('show');
+//	};
+//};
     
 function computerChoiceNumber() {
   var computerChoiceNumber = Math.floor(Math.random() * 3 + 1);
