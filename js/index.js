@@ -16,7 +16,7 @@ var params = {
   output: document.getElementById('output'),
   result: document.getElementById('result'),
   rounds: document.getElementById('rounds'),
-  yourScore: ocument.getElementById('yourScore'),
+  yourScore: document.getElementById('yourScore'),
   hisScore: document.getElementById('hisScore'),
   newGame: document.getElementById('newGame'),
   playerScore,
