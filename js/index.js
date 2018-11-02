@@ -85,7 +85,7 @@ function playerMove(playerChoice) {
     params.roundsNumber--;
   }
 
-  if (roundsNumber == 0) 
+  if (params.roundsNumber == 0) 
     {if (params.computerScore > params.playerScore) {
         params.rounds.innerHTML = 'GAME OVER' +'<br>' + 'KOMPUTER WYGRAŁ';
         buttons.classList.add("hide");
