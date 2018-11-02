@@ -52,7 +52,7 @@ function computerChoiceNumber() {
   if (computerChoiceNumber == 1) {
     computerChoice = "papier";
   } else if (computerChoiceNumber == 2) {
-    computerChoice = "kamień";
+    params.computerChoice = "kamień";
   } else {
     computerChoice = "nożyce";
   }
@@ -61,19 +61,19 @@ function computerChoiceNumber() {
 function playerMove(playerChoice) {
 
   computerChoiceNumber();
-  params.output.innerHTML = 'Wybrałeś '+playerChoice+'. Komputer wybrał '+computerChoice+'.';
+  params.output.innerHTML = 'Wybrałeś '+playerChoice+'. Komputer wybrał '+params.computerChoice+'.';
   
-  if (playerChoice == 'papier' && computerChoice == 'kamień' ||
-      playerChoice == 'nożyce' && computerChoice == 'papier' ||
-      playerChoice == 'kamień' && computerChoice == 'nożyce'
+  if (playerChoice == 'papier' && params.computerChoice == 'kamień' ||
+      playerChoice == 'nożyce' && params.computerChoice == 'papier' ||
+      playerChoice == 'kamień' && params.computerChoice == 'nożyce'
   ) {
     params.result.innerHTML = 'WYGRYWASZ';
     params.playerScore++;
     params.yourScore.innerHTML = 'Twój wynik: '+playerScore+'';
     params.roundsNumber--;
-     } else if (playerChoice == 'papier' && computerChoice == 'nożyce' ||
-      playerChoice == 'nożyce' && computerChoice == 'kamień' ||
-      playerChoice == 'kamień' && computerChoice == 'papier') {
+     } else if (playerChoice == 'papier' && params.computerChoice == 'nożyce' ||
+      playerChoice == 'nożyce' && params.computerChoice == 'kamień' ||
+      playerChoice == 'kamień' && params.computerChoice == 'papier') {
     
     params.result.innerHTML = 'PRZEGRYWASZ';
     params.computerScore++;
