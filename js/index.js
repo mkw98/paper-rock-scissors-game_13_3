@@ -69,7 +69,7 @@ function playerMove(playerChoice) {
   ) {
     params.result.innerHTML = 'WYGRYWASZ';
     params.playerScore++;
-    params.yourScore.innerHTML = 'Twój wynik: '+playerScore+'';
+    params.yourScore.innerHTML = 'Twój wynik: '+params.playerScore+'';
     params.roundsNumber--;
      } else if (playerChoice == 'papier' && params.computerChoice == 'nożyce' ||
       playerChoice == 'nożyce' && params.computerChoice == 'kamień' ||
