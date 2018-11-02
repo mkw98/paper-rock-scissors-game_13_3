@@ -100,7 +100,7 @@ function playerMove(playerChoice) {
       rounds.classList.add("important");
     }
     } else {
-    params.rounds.innerHTML = 'Liczba rund do końca gry: '+roundsNumber+'';
+    params.rounds.innerHTML = 'Liczba rund do końca gry: '+params.roundsNumber+'';
     };
     };
 
