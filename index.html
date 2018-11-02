@@ -10,9 +10,10 @@
   <div class="container">
   <button id="newGame">NOWA GRA</div>
   </button>
-  <div id="buttons" class="hide"><button id="paper">PAPIER</button>
-  <button id="rock">KAMIEŃ </button>
-    <button id="scissors" >NOŻYCE</button></div>
+  <div id="buttons" class="hide">
+	<button id="paper" data-move="paper">PAPIER</button>
+  	<button id="rock" data-move="rock">KAMIEŃ </button>
+    	<button id="scissors" data-move="scissors" >NOŻYCE</button></div>
   <div id="output"></div>
   <div id="result"></div>
   <div id="yourScore">Twój wynik: 0. </div>
@@ -22,9 +23,16 @@
   <div class="overlay" id="modal-overlay">
 	<div class="modal" id="modal-one">
 		<a href="#" class="close">x</a>
-		<header>Modal one</header>
+		<header>Wynik gry</header>
 		<div class="content">
-			<p>Dolor sit amet!</p>
+			 <table id="tableResult">
+                        <tr>
+                            <th>Round</th>
+                            <th>Player Move</th> 
+                            <th>Computer Move</th>
+                            <th>Result</th>
+                        </tr>
+                    </table>
 		</div>
 	</div>
 	<div class="modal" id="modal-two">
