@@ -77,7 +77,7 @@ function playerMove(playerChoice) {
     
     params.result.innerHTML = 'PRZEGRYWASZ';
     params.computerScore++;
-    params.hisScore.innerHTML = 'Wynik komputera: '+computerScore+'';
+    params.hisScore.innerHTML = 'Wynik komputera: '+params.computerScore+'';
     params.roundsNumber--;
        
   } else {
