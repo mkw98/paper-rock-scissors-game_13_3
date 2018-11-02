@@ -10,15 +10,14 @@
 //teraz będzie się nazywać params.roundsPlayed.
 
 var params = {
-  paper = document.getElementById('paper'),
-  scissors = document.getElementById('scissors'),
-  rock = document.getElementById('rock'),
-  output = document.getElementById('output'),
-  result = document.getElementById('result'),
-  rounds = document.getElementById('rounds'),
-  yourScore = document.getElementById('yourScore'),
-  hisScore = document.getElementById('hisScore'),
-  newGame = document.getElementById('newGame'),
+  paper: document.getElementById('paper'),
+  scissors: document.getElementById('scissors'),
+  rock: document.getElementById('rock');    output: document.getElementById('output'),
+  result: document.getElementById('result'),
+  rounds: document.getElementById('rounds'),
+  yourScore: ocument.getElementById('yourScore'),
+  hisScore: document.getElementById('hisScore'),
+  newGame: document.getElementById('newGame'),
   playerScore,
   computerScore,
   computerChoice,
@@ -31,7 +30,8 @@ var params = {
   //completeRounds: 0,
   //progress: [],
 };
-                      
+                   
+    
 function computerChoiceNumber() {
   var computerChoiceNumber = Math.floor(Math.random() * 3 + 1);
   if (computerChoiceNumber == 1) {
