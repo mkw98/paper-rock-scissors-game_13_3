@@ -23,29 +23,67 @@ var params = {
   computerScore: 0,
   computerChoice: 0,
   roundsNumber: 0,
-  
+  progress: [],
   
   //playerWins: 0,
   //computerWins: 0,
   //maxRounds: 0,
   //completeRounds: 0,
-  //progress: [],
+  
 };
 
 //modal
-//var showModal = function(score){
-//	document.querySelector('.overlay').classList.add('show');
-//	document.querySelector(score).classList.add('show');
-// };
+(function(){ 
 
-//var hideModal = function(event){
-//	event.preventDefault();
-//	document.querySelector('#modal-overlay').classList.remove('show');
-//	var modalsToClose = document.querySelectorAll('.modal');
-//	for(var i = 0; i < modalsToClose.length; i++){
-//		modalsToClose[i].classList.remove('show');
-//	};
-//};
+var showModal = function(event){
+event.preventDefault();
+document.querySelector('#modal-overlay').classList.add('show');
+var modalId = event.target.getAttribute('href'); 
+
+var modals = document.querySelectorAll('.modal');
+var overlayId = "#modal-overlay";
+for(var i = 0; i < modals.length; i++) {modals[i].classList.remove('show');
+}
+document.querySelector(modalId).classList.add('show');
+document.querySelector(overlayId).classList.add('show');
+};
+	
+	// kod dla wielu linków
+	
+	var modalLinks = document.querySelectorAll('.show-modal');
+	
+	for(var i = 0; i < modalLinks.length; i++){
+		modalLinks[i].addEventListener('click', showModal);
+	}
+	
+	// Funkcja zamykająca modal, przywiązana do kliknięć na elemencie z klasą "close". 
+
+	var hideModal = function(event){
+		event.preventDefault();
+		document.querySelector('#modal-overlay').classList.remove('show');
+	};
+	
+	var closeButtons = document.querySelectorAll('.modal .close');
+	
+	for(var i = 0; i < closeButtons.length; i++){
+		closeButtons[i].addEventListener('click', hideModal);
+	}
+	
+	// umożliwienie zamykania modala poprzez kliknięcie w overlay 
+	
+	document.querySelector('#modal-overlay').addEventListener('click', hideModal);
+	
+	// blokada propagacji kliknięć z samego modala - inaczej każde kliknięcie wewnątrz modala również zamykałoby go. 
+	
+	var modals = document.querySelectorAll('.modal');
+	
+	for(var i = 0; i < modals.length; i++){
+		modals[i].addEventListener('click', function(event){
+			event.stopPropagation();
+		});
+	}
+	
+})(); 
     
 function computerChoiceNumber() {
   var computerChoiceNumber = Math.floor(Math.random() * 3 + 1);
