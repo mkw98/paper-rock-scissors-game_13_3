@@ -135,14 +135,14 @@ newGame.addEventListener("click", function() {
     "Ile rund chcesz rozegrać?");
   if (params.roundsNumber === null) {
     params.rounds.innerHTML = 'Kliknięto "anuluj". Rezygnujesz? Jeśli nie, kliknij "Nowa gra", aby ustalić, ile razy chcesz zagrać';
-  } else if (isNaN(roundsNumber)) {
+  } else if (isNaN(params.roundsNumber)) {
     params.rounds.innerHTML = 'Ile rund chcesz rozegrać? Wpisz tylko cyfry' + '<br><br>';
-  } else if (roundsNumber === '') {
+  } else if (params.roundsNumber === '') {
     rounds.innerHTML = 'Nic nie wpisano. Ile rund chcesz rozegrać?';
-  } else if (roundsNumber < 1) {
+  } else if (params.roundsNumber < 1) {
     params.rounds.innerHTML = 'Wpisz liczbę większą od zera.';
   } else {
-    params.rounds.innerHTML = 'Liczba rund: '+roundsNumber+'';
+    params.rounds.innerHTML = 'Liczba rund: '+params.roundsNumber+'';
     buttons.classList.remove("hide");
     rounds.classList.remove("important");
   };
