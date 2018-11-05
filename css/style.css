@@ -77,10 +77,12 @@ button {
   min-height: 30px;
   font-weight: bold;
   padding: 0 30px;
+  color: red;
 }
 .modal .content {
   min-height: 30px;
   padding: 5px 30px;
+ color: red;
 }
 #tableResult {
   border:solid grey;
