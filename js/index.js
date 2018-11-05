@@ -96,6 +96,15 @@ function computerChoiceNumber() {
   }
 };
 
+function hideAll (){
+      params.output.innerHTML = '';
+      buttons.classList.add("hide");
+      rounds.classList.add("important");
+      params.result.innerHTML = '';
+      params.yourScore.innerHTML = '';
+      params.hisScore.innerHTML = '';
+      params.rounds.innerHTML = 'Liczba rund do końca gry: 0';
+}
 function playerMove(playerChoice) {
 
   computerChoiceNumber();
@@ -126,22 +135,19 @@ function playerMove(playerChoice) {
   if (params.roundsNumber == 0) 
     {if (params.computerScore > params.playerScore) {
         //params.rounds.innerHTML = 'GAME OVER' +'<br>' + 'KOMPUTER WYGRAŁ';
-        buttons.classList.add("hide");
-        rounds.classList.add("important");
-	document.querySelector("#modal-two").classList.add('show');
-	document.querySelector("#modal-overlay").classList.add('show');
+        hideAll ();
+	     document.querySelector("#modal-two").classList.add('show');
+	     document.querySelector("#modal-overlay").classList.add('show');
 	    
     } else if (params.playerScore > params.computerScore) {
        //params.rounds.innerHTML = 'GAME OVER' + '<br>' + 'KOMPUTER PRZEGRAŁ';
-       buttons.classList.add("hide");
-       rounds.classList.add("important");
+       hideAll ();
        document.querySelector("#modal-three").classList.add('show');
        document.querySelector("#modal-overlay").classList.add('show');
 	    
     } else if (params.playerScore === params.computerScore) {
       //params.rounds.innerHTML = 'GAME OVER' + '<br>' + 'REMIS';
-      buttons.classList.add("hide");
-      rounds.classList.add("important");
+      hideAll ();
       document.querySelector("#modal-one").classList.add('show');
       document.querySelector("#modal-overlay").classList.add('show');
     }
@@ -156,17 +162,29 @@ function playerMove(playerChoice) {
 //która wywołuje funkcję playerMove z odpowiednim argumentem. 
 //Tym argumentem będzie wartość atrybutu data-move, pobranego za pomocą getAttribute.
 
-paper.addEventListener('click', function() {
-    playerMove('papier');
-});
+var buttonPlayerMove = document.querySelectorAll('.player-move');
 
-rock.addEventListener('click', function() {
-  playerMove('kamień');
-});
+for (var i = 0; i < buttonPlayerMove.length; i++) {
+  var dataMove = buttonPlayerMove[i].getAttribute('data-move');
+  
+  buttonPlayerMove[i].addEventListener('click', function() {
+    
+    playerMove(dataMove);
+  });
+}
 
-scissors.addEventListener('click', function() {
-  playerMove('nożyce');
-});
+
+//paper.addEventListener('click', function() {
+//    playerMove('papier');
+//});
+//
+//rock.addEventListener('click', function() {
+ // playerMove('kamień');
+//});
+//
+//scissors.addEventListener('click', function() {
+//  playerMove('nożyce');
+//});
 
 
 newGame.addEventListener("click", function() {
