@@ -8,7 +8,7 @@
 <body>
 
   <div class="container">
-  <button id="newGame">NOWA GRA</div>
+  <button id="newGame">NOWA GRA
   </button>
   <div id="buttons" class="hide">
 	  <button id="paper" class="player-move" data-move="papier">PAPIER</button>
@@ -27,6 +27,14 @@
 		<header>GAME OVER</header>
 		<div class="content">
 			<div id="modalResult"></div>
+        <table id="tableResult1">
+                        <tr>
+                            <th>Runda</th>
+                            <th>Ty wybrałeś</th> 
+                            <th>Komputer wybrał</th>
+                            <th>Wynik</th>
+                        </tr>
+                    </table>
 			 <table id="tableResult">
                         <tr>
                             <th>Runda</th>
@@ -37,14 +45,14 @@
                     </table>
 		</div>
 	</div>
-	<div class="modal" id="modal-two">
+<!--	<div class="modal" id="modal-two">
 		<a href="#" class="close">x</a>
 		<header>GAME OVER</header>
 		<div class="content">
 			<div id="modalResult"></div>
 			<p>KOMPUTER WYGRAŁ</p>
 			<table id="tableResult">
-                        <tr>
+                       <tr>
                             <th>Runda</th>
                             <th>Ty wybrałeś</th> 
                             <th>Komputer wybrał</th>
@@ -53,8 +61,8 @@
                     </table>
 		</div>
 	</div>
-	<div class="modal" id="modal-three">
-		<a href="#" class="close">x</a>
+//	<div class="modal" id="modal-three">
+//		<a href="#" class="close">x</a>
 		<header>GAME OVER</header>
 		<div class="content">
 			<div id="modalResult"></div>
@@ -69,7 +77,9 @@
                     </table>
 		</div>
 	</div>
+-->
 </div>
+
     <script  src="js/index.js"></script>
 
 </body>

@@ -20,16 +20,12 @@ var params = {
   hisScore: document.getElementById('hisScore'),
   newGame: document.getElementById('newGame'),
   modalResult: document.getElementById('modalResult'),
+  modalResult1: document.getElementById('tableResult1'),
   playerScore: 0,
   computerScore: 0,
   computerChoice: 0,
   roundsNumber: 0,
   progress: [],
-  
-  //playerWins: 0,
-  //computerWins: 0,
-  //maxRounds: 0,
-  //completeRounds: 0,
   
 };
 
@@ -48,42 +44,42 @@ for(var i = 0; i < modals.length; i++) {modals[i].classList.remove('show');
 document.querySelector(modalId).classList.add('show');
 document.querySelector(overlayId).classList.add('show');
 };
-	
-	// kod dla wielu linków
-	
-	var modalLinks = document.querySelectorAll('.show-modal');
-	
-	for(var i = 0; i < modalLinks.length; i++){
-		modalLinks[i].addEventListener('click', showModal);
-	}
-	
-	// Funkcja zamykająca modal, przywiązana do kliknięć na elemencie z klasą "close". 
+  
+  // kod dla wielu linków
+  
+  var modalLinks = document.querySelectorAll('.show-modal');
+  
+  for(var i = 0; i < modalLinks.length; i++){
+    modalLinks[i].addEventListener('click', showModal);
+  }
+  
+  // Funkcja zamykająca modal, przywiązana do kliknięć na elemencie z klasą "close". 
 
-	var hideModal = function(event){
-		event.preventDefault();
-		document.querySelector('#modal-overlay').classList.remove('show');
-	};
-	
-	var closeButtons = document.querySelectorAll('.modal .close');
-	
-	for(var i = 0; i < closeButtons.length; i++){
-		closeButtons[i].addEventListener('click', hideModal);
-	}
-	
-	// umożliwienie zamykania modala poprzez kliknięcie w overlay 
-	
-	document.querySelector('#modal-overlay').addEventListener('click', hideModal);
-	
-	// blokada propagacji kliknięć z samego modala - inaczej każde kliknięcie wewnątrz modala również zamykałoby go. 
-	
-	var modals = document.querySelectorAll('.modal');
-	
-	for(var i = 0; i < modals.length; i++){
-		modals[i].addEventListener('click', function(event){
-			event.stopPropagation();
-		});
-	}
-	
+  var hideModal = function(event){
+    event.preventDefault();
+    document.querySelector('#modal-overlay').classList.remove('show');
+  };
+  
+  var closeButtons = document.querySelectorAll('.modal .close');
+  
+  for(var i = 0; i < closeButtons.length; i++){
+    closeButtons[i].addEventListener('click', hideModal);
+  }
+  
+  // umożliwienie zamykania modala poprzez kliknięcie w overlay 
+  
+  document.querySelector('#modal-overlay').addEventListener('click', hideModal);
+  
+  // blokada propagacji kliknięć z samego modala - inaczej każde kliknięcie wewnątrz modala również zamykałoby go. 
+  
+  var modals = document.querySelectorAll('.modal');
+  
+  for(var i = 0; i < modals.length; i++){
+    modals[i].addEventListener('click', function(event){
+      event.stopPropagation();
+    });
+  }
+  
 })(); 
     
 function computerChoiceNumber() {
@@ -138,17 +134,17 @@ function playerMove(playerChoice) {
     {if (params.computerScore > params.playerScore) {
         //params.rounds.innerHTML = 'GAME OVER' +'<br>' + 'KOMPUTER WYGRAŁ';
         hideAll ();
-	    params.modalResult.innerHTML = 'KOMPUTER WYGRAŁ';
+      params.modalResult.innerHTML = 'KOMPUTER WYGRAŁ';
        document.querySelector("#modal-one").classList.add('show');
-	     document.querySelector("#modal-overlay").classList.add('show');
-	    
+       document.querySelector("#modal-overlay").classList.add('show');
+      
     } else if (params.playerScore > params.computerScore) {
        //params.rounds.innerHTML = 'GAME OVER' + '<br>' + 'KOMPUTER PRZEGRAŁ';
        hideAll ();
        params.modalResult.innerHTML = 'KOMPUTER PRZEGRAŁ';
        document.querySelector("#modal-one").classList.add('show');
        document.querySelector("#modal-overlay").classList.add('show');
-	    
+      
     } else if (params.playerScore === params.computerScore) {
       //params.rounds.innerHTML = 'GAME OVER' + '<br>' + 'REMIS';
       hideAll ();
@@ -220,17 +216,13 @@ newGame.addEventListener("click", function() {
 Czas na dodanie do Twojej gry pierwszego modala (tak, będzie ich więcej). 
 Do tej pory po osiągnięciu przez gracza lub komputer zadanej liczby wygranych rund, gra kończyła się wyświetleniem na stronie komunikatu,
 który informował kto wygrał całą rozgrywkę.
-
 Teraz chcemy, aby ten komunikat wyświetlał się w modalu. 
 W tym celu dodaj do strony modal, podobnie jak w zadaniu dot. modala z tego modułu. 
 Możesz użyć tego samego kodu JS, ponieważ będzie kilka różnych modali.
-
 Po zakończeniu gry ten sam komunikat, który wcześniej był wyświetlany na stronie, ma teraz być wstawiany do modala, 
 a modal ma zostać pokazany.
-
 Etap 5 — tabela przebiegu gry
 W modalu z wynikiem gry chcemy - oprócz komunikatu - wyświetlać tabelę z przebiegiem gry. Będzie to prosta tabelka z kolumnami:
-
 numer rundy,
 ruch gracza,
 ruch komputera,
@@ -239,25 +231,17 @@ wynik gry po tej rundzie (np. "0-1" jeśli to pierwsza runda i wygrał komputer)
 //W tym celu w obiekcie params dodaj pustą tablicę progress. 
 W funkcji playerMove, która jest uruchamiana po każdym ruchu gracza, wstawiaj do tablicy params.progress nowy obiekt
 zawierający wszystkie dane niezbędne do późniejszego wypełnienia tabeli.
-
 Po zakończeniu gry, na podstawie obiektów w tablicy params.progress wygeneruj tabelę i wstaw ją do modala
 razem z komunikatem o zwycięzcy gry.
-
 Etap 6* — dla chętnych - modal nowej gry
 Ostatni etap jest "z gwiazdką", ponieważ wymaga poszukania dodatkowych informacji w internecie.
-
 Twoim zadaniem w tym etapie jest zmienić działanie guzika "New game". Obecnie wyświetla on prompt pytający o liczbę wygranych rund, która ma oznaczać wygraną grę.
-
 Stwórz nowy modal, który ma być otwierany po kliknięciu guzika "New game" zamiast prompta. W tym modalu chcemy mieć:
-
 pole tekstowe (<input type="text">) na imię gracza,
 pole tekstowe (<input type="number">) na ilość wygranych rund, która oznacza wygranie gry,
 guzik "Start".
 Tylko po kliknięciu guzika "Start" ma rozpocząć się nowa gra. Wykorzystaj limit wygranych rund tak jak do tej pory, a dodatkowo użyj imienia gracza na swojej stronie (np. jeśli imię to John, to zamiast "You played ROCK" ma być "John played ROCK").
-
 Do wykonania tego etapu musisz:
-
 znaleźć w internecie informację, w jaki sposób pobierać wartość z pola tekstowego,
 dodać osobną funkcję wykonywaną po kliknięciu guzika "Start".
-
 */
