@@ -108,6 +108,7 @@ function hideAll (){
 function playerMove(playerChoice) {
 
   computerChoiceNumber();
+
   params.output.innerHTML = 'Wybrałeś '+playerChoice+'. Komputer wybrał '+params.computerChoice+'.';
   
   if (playerChoice == 'papier' && params.computerChoice == 'kamień' ||
@@ -164,24 +165,21 @@ function playerMove(playerChoice) {
 
 var buttonPlayerMove = document.querySelectorAll('.player-move');
 
-for (var i = 0; i < buttonPlayerMove.length; i++) {
-  var dataMove = buttonPlayerMove[i].getAttribute('data-move');
-  
-  buttonPlayerMove[i].addEventListener('click', function() {
-    
+for(var i = 0; i < buttonPlayerMove.length; i++){
+  buttonPlayerMove[i].addEventListener('click', function(){
+    var dataMove = event.target.getAttribute("data-move");
     playerMove(dataMove);
   });
 }
 
-
 //paper.addEventListener('click', function() {
 //    playerMove('papier');
 //});
-//
+
 //rock.addEventListener('click', function() {
- // playerMove('kamień');
+// playerMove('kamień');
 //});
-//
+
 //scissors.addEventListener('click', function() {
 //  playerMove('nożyce');
 //});
