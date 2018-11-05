@@ -128,14 +128,14 @@ function playerMove(playerChoice) {
         params.rounds.innerHTML = 'GAME OVER' +'<br>' + 'KOMPUTER WYGRAŁ';
         buttons.classList.add("hide");
         rounds.classList.add("important");
-	document.querySelector("#modal-one").classList.add('show');
+	document.querySelector("#modal-two").classList.add('show');
 	document.querySelector("#modal-overlay").classList.add('show');
 	    
     } else if (params.playerScore > params.computerScore) {
        params.rounds.innerHTML = 'GAME OVER' + '<br>' + 'KOMPUTER PRZEGRAŁ';
        buttons.classList.add("hide");
        rounds.classList.add("important");
-       document.querySelector("#modal-one").classList.add('show');
+       document.querySelector("#modal-three").classList.add('show');
        document.querySelector("#modal-overlay").classList.add('show');
 	    
     } else if (params.playerScore === params.computerScore) {
