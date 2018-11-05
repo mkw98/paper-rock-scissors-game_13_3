@@ -19,6 +19,7 @@ var params = {
   yourScore: document.getElementById('yourScore'),
   hisScore: document.getElementById('hisScore'),
   newGame: document.getElementById('newGame'),
+  modalResult: document.getElementById('modalResult'),
   playerScore: 0,
   computerScore: 0,
   computerChoice: 0,
@@ -137,18 +138,21 @@ function playerMove(playerChoice) {
     {if (params.computerScore > params.playerScore) {
         //params.rounds.innerHTML = 'GAME OVER' +'<br>' + 'KOMPUTER WYGRAŁ';
         hideAll ();
-	     document.querySelector("#modal-two").classList.add('show');
+	    params.modalResult.innerHTML = 'KOMPUTER WYGRAŁ';
+       document.querySelector("#modal-one").classList.add('show');
 	     document.querySelector("#modal-overlay").classList.add('show');
 	    
     } else if (params.playerScore > params.computerScore) {
        //params.rounds.innerHTML = 'GAME OVER' + '<br>' + 'KOMPUTER PRZEGRAŁ';
        hideAll ();
-       document.querySelector("#modal-three").classList.add('show');
+       params.modalResult.innerHTML = 'KOMPUTER PRZEGRAŁ';
+       document.querySelector("#modal-one").classList.add('show');
        document.querySelector("#modal-overlay").classList.add('show');
 	    
     } else if (params.playerScore === params.computerScore) {
       //params.rounds.innerHTML = 'GAME OVER' + '<br>' + 'REMIS';
       hideAll ();
+      params.modalResult.innerHTML = 'REMIS';
       document.querySelector("#modal-one").classList.add('show');
       document.querySelector("#modal-overlay").classList.add('show');
     }
