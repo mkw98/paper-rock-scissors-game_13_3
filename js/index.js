@@ -125,21 +125,21 @@ function playerMove(playerChoice) {
 
   if (params.roundsNumber == 0) 
     {if (params.computerScore > params.playerScore) {
-        params.rounds.innerHTML = 'GAME OVER' +'<br>' + 'KOMPUTER WYGRAŁ';
+        //params.rounds.innerHTML = 'GAME OVER' +'<br>' + 'KOMPUTER WYGRAŁ';
         buttons.classList.add("hide");
         rounds.classList.add("important");
 	document.querySelector("#modal-two").classList.add('show');
 	document.querySelector("#modal-overlay").classList.add('show');
 	    
     } else if (params.playerScore > params.computerScore) {
-       params.rounds.innerHTML = 'GAME OVER' + '<br>' + 'KOMPUTER PRZEGRAŁ';
+       //params.rounds.innerHTML = 'GAME OVER' + '<br>' + 'KOMPUTER PRZEGRAŁ';
        buttons.classList.add("hide");
        rounds.classList.add("important");
        document.querySelector("#modal-three").classList.add('show');
        document.querySelector("#modal-overlay").classList.add('show');
 	    
     } else if (params.playerScore === params.computerScore) {
-      params.rounds.innerHTML = 'GAME OVER' + '<br>' + 'REMIS';
+      //params.rounds.innerHTML = 'GAME OVER' + '<br>' + 'REMIS';
       buttons.classList.add("hide");
       rounds.classList.add("important");
       document.querySelector("#modal-one").classList.add('show');
@@ -197,11 +197,16 @@ newGame.addEventListener("click", function() {
 
 
 /*Etap 4 — modal z wynikiem gry
-Czas na dodanie do Twojej gry pierwszego modala (tak, będzie ich więcej). Do tej pory po osiągnięciu przez gracza lub komputer zadanej liczby wygranych rund, gra kończyła się wyświetleniem na stronie komunikatu, który informował kto wygrał całą rozgrywkę.
+Czas na dodanie do Twojej gry pierwszego modala (tak, będzie ich więcej). 
+Do tej pory po osiągnięciu przez gracza lub komputer zadanej liczby wygranych rund, gra kończyła się wyświetleniem na stronie komunikatu,
+który informował kto wygrał całą rozgrywkę.
 
-Teraz chcemy, aby ten komunikat wyświetlał się w modalu. W tym celu dodaj do strony modal, podobnie jak w zadaniu dot. modala z tego modułu. Możesz użyć tego samego kodu JS, ponieważ będzie kilka różnych modali.
+Teraz chcemy, aby ten komunikat wyświetlał się w modalu. 
+W tym celu dodaj do strony modal, podobnie jak w zadaniu dot. modala z tego modułu. 
+Możesz użyć tego samego kodu JS, ponieważ będzie kilka różnych modali.
 
-Po zakończeniu gry ten sam komunikat, który wcześniej był wyświetlany na stronie, ma teraz być wstawiany do modala, a modal ma zostać pokazany.
+Po zakończeniu gry ten sam komunikat, który wcześniej był wyświetlany na stronie, ma teraz być wstawiany do modala, 
+a modal ma zostać pokazany.
 
 Etap 5 — tabela przebiegu gry
 W modalu z wynikiem gry chcemy - oprócz komunikatu - wyświetlać tabelę z przebiegiem gry. Będzie to prosta tabelka z kolumnami:
@@ -212,9 +217,11 @@ ruch komputera,
 wynik rundy,
 wynik gry po tej rundzie (np. "0-1" jeśli to pierwsza runda i wygrał komputer).
 //W tym celu w obiekcie params dodaj pustą tablicę progress. 
-W funkcji playerMove, która jest uruchamiana po każdym ruchu gracza, wstawiaj do tablicy params.progress nowy obiekt zawierający wszystkie dane niezbędne do późniejszego wypełnienia tabeli.
+W funkcji playerMove, która jest uruchamiana po każdym ruchu gracza, wstawiaj do tablicy params.progress nowy obiekt
+zawierający wszystkie dane niezbędne do późniejszego wypełnienia tabeli.
 
-Po zakończeniu gry, na podstawie obiektów w tablicy params.progress wygeneruj tabelę i wstaw ją do modala razem z komunikatem o zwycięzcy gry.
+Po zakończeniu gry, na podstawie obiektów w tablicy params.progress wygeneruj tabelę i wstaw ją do modala
+razem z komunikatem o zwycięzcy gry.
 
 Etap 6* — dla chętnych - modal nowej gry
 Ostatni etap jest "z gwiazdką", ponieważ wymaga poszukania dodatkowych informacji w internecie.
