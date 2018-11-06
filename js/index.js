@@ -135,28 +135,45 @@ function playerMove(playerChoice) {
         //params.rounds.innerHTML = 'GAME OVER' +'<br>' + 'KOMPUTER WYGRAŁ';
         hideAll ();
       params.modalResult.innerHTML = 'KOMPUTER WYGRAŁ';
+	  createTable();
        document.querySelector("#modal-one").classList.add('show');
        document.querySelector("#modal-overlay").classList.add('show');
+	   
       
     } else if (params.playerScore > params.computerScore) {
        //params.rounds.innerHTML = 'GAME OVER' + '<br>' + 'KOMPUTER PRZEGRAŁ';
        hideAll ();
        params.modalResult.innerHTML = 'KOMPUTER PRZEGRAŁ';
+	   createTable();
        document.querySelector("#modal-one").classList.add('show');
        document.querySelector("#modal-overlay").classList.add('show');
+	   
       
     } else if (params.playerScore === params.computerScore) {
       //params.rounds.innerHTML = 'GAME OVER' + '<br>' + 'REMIS';
       hideAll ();
       params.modalResult.innerHTML = 'REMIS';
+	  createTable();
       document.querySelector("#modal-one").classList.add('show');
       document.querySelector("#modal-overlay").classList.add('show');
+	  
     }
     } else {
     params.rounds.innerHTML = 'Liczba rund do końca gry: '+params.roundsNumber+'';
     };
     };
-
+function createTable() {
+    var table = document.getElementById("tableResult1");
+    var row = table.insertRow(0);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(3);
+    var cell4 = row.insertCell(4);
+    cell1.innerHTML = "Runda";
+    cell2.innerHTML = "Ty wybrałeś";
+    cell1.innerHTML = "Komputer wybrał";
+    cell1.innerHTML = "Wynik";
+}
 // zamiast osobnego przywiązania funkcji do każdego z guzików, 
 //stwórz pętlę przechodzącą przez wszystkie elementy z klasą player-move.
 //W pętli niech dla każdego guzika będzie przywiązana funkcja, 
