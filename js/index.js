@@ -116,6 +116,7 @@ function playerMove(playerChoice) {
     params.playerScore++;
     params.yourScore.innerHTML = 'Twój wynik: '+params.playerScore+'';
     params.roundsNumber--;
+	createTable(1, playerChoice, params.computerChoice,4);
      } else if (playerChoice == 'papier' && params.computerChoice == 'nożyce' ||
       playerChoice == 'nożyce' && params.computerChoice == 'kamień' ||
       playerChoice == 'kamień' && params.computerChoice == 'papier') {
@@ -124,10 +125,11 @@ function playerMove(playerChoice) {
     params.computerScore++;
     params.hisScore.innerHTML = 'Wynik komputera: '+params.computerScore+'';
     params.roundsNumber--;
-       
+    createTable(1, playerChoice, params.computerChoice,4);   
   } else {
     params.result.innerHTML = 'REMIS';  
     params.roundsNumber--;
+	createTable(1, playerChoice, params.computerChoice,4);
   }
 
   if (params.roundsNumber == 0) 
@@ -135,7 +137,7 @@ function playerMove(playerChoice) {
         //params.rounds.innerHTML = 'GAME OVER' +'<br>' + 'KOMPUTER WYGRAŁ';
         hideAll ();
       params.modalResult.innerHTML = 'KOMPUTER WYGRAŁ';
-	  createTable();
+	  createTable(1,2,3,4);
        document.querySelector("#modal-one").classList.add('show');
        document.querySelector("#modal-overlay").classList.add('show');
 	   
@@ -144,7 +146,7 @@ function playerMove(playerChoice) {
        //params.rounds.innerHTML = 'GAME OVER' + '<br>' + 'KOMPUTER PRZEGRAŁ';
        hideAll ();
        params.modalResult.innerHTML = 'KOMPUTER PRZEGRAŁ';
-	   createTable();
+	   createTable(1,2,3,4);
        document.querySelector("#modal-one").classList.add('show');
        document.querySelector("#modal-overlay").classList.add('show');
 	   
@@ -153,7 +155,7 @@ function playerMove(playerChoice) {
       //params.rounds.innerHTML = 'GAME OVER' + '<br>' + 'REMIS';
       hideAll ();
       params.modalResult.innerHTML = 'REMIS';
-	  createTable();
+	  createTable(1,2,3,4);
       document.querySelector("#modal-one").classList.add('show');
       document.querySelector("#modal-overlay").classList.add('show');
 	  
@@ -162,17 +164,17 @@ function playerMove(playerChoice) {
     params.rounds.innerHTML = 'Liczba rund do końca gry: '+params.roundsNumber+'';
     };
     };
-function createTable() {
+function createTable(a, b, c, d) {
     var table = document.getElementById("tableResult1");
     var row = table.insertRow(0);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(3);
-    var cell4 = row.insertCell(4);
-    cell1.innerHTML = "Runda";
-    cell2.innerHTML = "Ty wybrałeś";
-    cell1.innerHTML = "Komputer wybrał";
-    cell1.innerHTML = "Wynik";
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+    cell1.innerHTML = a;
+    cell2.innerHTML = b;
+    cell3.innerHTML = c;
+    cell4.innerHTML = d;
 }
 // zamiast osobnego przywiązania funkcji do każdego z guzików, 
 //stwórz pętlę przechodzącą przez wszystkie elementy z klasą player-move.
@@ -189,6 +191,7 @@ for(var i = 0; i < buttonPlayerMove.length; i++){
   });
 }
 
+//poprzedni kod - zbędny
 //paper.addEventListener('click', function() {
 //    playerMove('papier');
 //});
@@ -201,7 +204,7 @@ for(var i = 0; i < buttonPlayerMove.length; i++){
 //  playerMove('nożyce');
 //});
 
-
+//kod guzika newGame
 newGame.addEventListener("click", function() {
    
   params.result.innerHTML = " ";
@@ -224,6 +227,7 @@ newGame.addEventListener("click", function() {
     params.rounds.innerHTML = 'Liczba rund: '+params.roundsNumber+'';
     buttons.classList.remove("hide");
     rounds.classList.remove("important");
+	createTable("Runda","Ty wybrałeś","Komputer wybrał","Wynik");
   };
   }
   );
@@ -238,6 +242,7 @@ W tym celu dodaj do strony modal, podobnie jak w zadaniu dot. modala z tego modu
 Możesz użyć tego samego kodu JS, ponieważ będzie kilka różnych modali.
 Po zakończeniu gry ten sam komunikat, który wcześniej był wyświetlany na stronie, ma teraz być wstawiany do modala, 
 a modal ma zostać pokazany.
+
 Etap 5 — tabela przebiegu gry
 W modalu z wynikiem gry chcemy - oprócz komunikatu - wyświetlać tabelę z przebiegiem gry. Będzie to prosta tabelka z kolumnami:
 numer rundy,
@@ -250,6 +255,7 @@ W funkcji playerMove, która jest uruchamiana po każdym ruchu gracza, wstawiaj 
 zawierający wszystkie dane niezbędne do późniejszego wypełnienia tabeli.
 Po zakończeniu gry, na podstawie obiektów w tablicy params.progress wygeneruj tabelę i wstaw ją do modala
 razem z komunikatem o zwycięzcy gry.
+
 Etap 6* — dla chętnych - modal nowej gry
 Ostatni etap jest "z gwiazdką", ponieważ wymaga poszukania dodatkowych informacji w internecie.
 Twoim zadaniem w tym etapie jest zmienić działanie guzika "New game". Obecnie wyświetla on prompt pytający o liczbę wygranych rund, która ma oznaczać wygraną grę.
